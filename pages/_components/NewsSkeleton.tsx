@@ -9,7 +9,7 @@ export const NewsSkeleton = ({ limit, isLoading }: NewsSkeletonProps) => {
   const news = [];
 
   for (let i = 0; i < limit; i++) {
-    news.push(<BlogPostSkeleton isLoading={isLoading} />);
+    news.push(<BlogPostSkeleton isLoading={isLoading} key={i} />);
   }
 
   return news;
