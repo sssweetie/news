@@ -1,5 +1,5 @@
-import { BlogSkeleton } from '@/pages/_components/BlogSkeleton';
-import { useBlog } from '@/pages/_hooks/useBlog';
+import { BlogSkeleton } from '@/src/components/BlogSkeleton';
+import { useBlog } from '@/src/hooks/useBlog';
 import { Button, Flex, Image, Typography } from 'antd/lib';
 
 export const Blog = () => {

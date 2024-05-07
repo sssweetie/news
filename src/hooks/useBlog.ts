@@ -1,4 +1,4 @@
-import { getBlog } from '@/pages/_lib/getBlog';
+import { getBlog } from '@/src/lib/getBlog';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 

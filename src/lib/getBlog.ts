@@ -1,6 +1,6 @@
-import { Blog } from '@/pages/_components/News';
+import { Blog } from '@/src/components/News';
 import axios from 'axios';
-import { BlogPreviewProps } from '../_components/BlogPreview';
+import { BlogPreviewProps } from '../components/BlogPreview';
 
 type Query = number | string | string[] | undefined;
 

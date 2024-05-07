@@ -2,7 +2,7 @@ import { Typography, Image, Flex } from 'antd/lib';
 import React from 'react';
 import { Blog } from './News';
 import Link from 'next/link';
-import { getDate } from '../_utils/getDate';
+import { getDate } from '../utils/getDate';
 
 export type BlogPreviewProps = Pick<
   Blog,

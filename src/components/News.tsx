@@ -1,9 +1,9 @@
 import { Flex } from 'antd/lib';
-import { Paginator } from '../../components/Paginator';
+import { Paginator } from './Paginator';
 import { BlogPreview } from './BlogPreview';
 import { NewsSkeleton } from './NewsSkeleton';
-import { useNews } from '../_hooks/useNews';
-import { Header } from '@/components/Header';
+import { Header } from '@/src/components/Header';
+import { useNews } from '../hooks/useNews';
 
 export interface Blog {
   title: string;

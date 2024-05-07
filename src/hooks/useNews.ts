@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getNews } from '../_lib/getNews';
+import { getNews } from '../lib/getNews';
 
 const limit = 10;
 

@@ -1,4 +1,4 @@
-import { News } from '@/pages/_components/News';
+import { News } from '@/src/components/News';
 import {
   DehydratedState,
   HydrationBoundary,
@@ -6,7 +6,7 @@ import {
   dehydrate,
 } from '@tanstack/react-query';
 import { GetServerSideProps } from 'next';
-import { getNews } from './_lib/getNews';
+import { getNews } from '../src/lib/getNews';
 
 interface HomeProps {
   dehydratedState: DehydratedState;
