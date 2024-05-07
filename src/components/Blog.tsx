@@ -11,9 +11,9 @@ export const Blog = () => {
       vertical
       className="max-w-[75rem] justify-center items-center mx-auto mt-8 border-2 p-8 bg-white"
     >
-      <Button type="primary" onClick={onClick} className="w-fit mb-4">
+      <button type="button" onClick={onClick} className="w-fit mb-4">
         Back
-      </Button>
+      </button>
       <Typography.Title level={2}>{title}</Typography.Title>
       <Typography.Paragraph>{created_at}</Typography.Paragraph>
       <Typography.Paragraph>{description}</Typography.Paragraph>

@@ -7,8 +7,10 @@ const limit = 10;
 
 export const useNews = () => {
   const router = useRouter();
-
-  const [offset, setOffset] = useState(1);
+  const initialOffset = router.query.offset;
+  const [offset, setOffset] = useState(
+    initialOffset ? Number(initialOffset) : 1
+  );
 
   const { data, isLoading } = useQuery({
     queryKey: ['news', offset, limit],
