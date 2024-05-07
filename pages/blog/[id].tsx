@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-query';
 import { getBlog } from '../../src/entities/blog/api/getBlog';
 import { Blog } from '../../src/entities/blog/ui/Blog';
+import Head from 'next/head';
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { id } = query;
@@ -32,6 +33,10 @@ export default function Page({
 }) {
   return (
     <HydrationBoundary state={dehydratedState}>
+      <Head>
+        <title>Blog</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Blog />
     </HydrationBoundary>
   );
