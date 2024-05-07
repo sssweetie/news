@@ -2,14 +2,13 @@ import { BlogPostSkeleton } from './BlogPostSkeleton';
 
 interface NewsSkeletonProps {
   limit: number;
-  isLoading: boolean;
 }
 
-export const NewsSkeleton = ({ limit, isLoading }: NewsSkeletonProps) => {
+export const NewsSkeleton = ({ limit }: NewsSkeletonProps) => {
   const news = [];
 
   for (let i = 0; i < limit; i++) {
-    news.push(<BlogPostSkeleton isLoading={isLoading} key={i} />);
+    news.push(<BlogPostSkeleton key={i} />);
   }
 
   return news;

@@ -3,6 +3,7 @@ import { Paginator } from '../../components/Paginator';
 import { BlogPost } from './BlogPost';
 import { NewsSkeleton } from './NewsSkeleton';
 import { useNews } from '../_hooks/useNews';
+import { Header } from '@/components/Header';
 
 export interface Blog {
   title: string;
@@ -22,8 +23,9 @@ export const News = () => {
 
   return (
     <div className="py-10">
+      <Header />
       <Flex wrap gap={24} className="mb-4 justify-center">
-        <NewsSkeleton limit={limit} isLoading={isLoading} />
+        {isLoading && <NewsSkeleton limit={limit} />}
         {data?.blogs.map((blog: Blog) => (
           <BlogPost
             key={blog.id}
@@ -34,13 +36,15 @@ export const News = () => {
           />
         ))}
       </Flex>
-      <Paginator
-        style={{ margin: '0 auto' }}
-        className="w-fit"
-        total={data?.total_blogs ?? 0}
-        current={offset}
-        onChange={onChange}
-      />
+      {!isLoading && (
+        <Paginator
+          style={{ margin: '0 auto' }}
+          className="w-fit"
+          total={data?.total_blogs ?? 0}
+          current={offset}
+          onChange={onChange}
+        />
+      )}
     </div>
   );
 };

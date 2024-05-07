@@ -30,6 +30,7 @@ export const BlogPost = ({
         alt="news-photo"
         width="100%"
         height={200}
+        className="object-cover"
       />
       <Link
         href={`/blog/${encodeURIComponent(id)}`}

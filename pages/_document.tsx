@@ -10,7 +10,6 @@ const MyDocument = () => (
     <Head />
     <body className="bg-slate-100">
       <Flex justify="center" vertical>
-        <Header />
         <Main />
         <NextScript />
       </Flex>

@@ -6,7 +6,7 @@ export const useBlog = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['blog', id],
     queryFn: () => getBlog(id),
   });
@@ -16,6 +16,7 @@ export const useBlog = () => {
   };
 
   return {
+    isLoading,
     title: data?.title,
     created_at: data?.created_at,
     photo_url: data?.photo_url,
