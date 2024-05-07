@@ -1,7 +1,7 @@
 import { Blog } from '@/pages/_components/News';
 import axios from 'axios';
 
-type Query = number | string | string[] | undefined;
+export type Query = number | string | string[] | undefined;
 
 interface News {
   success: true;

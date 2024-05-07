@@ -22,6 +22,7 @@ export const Paginator = ({
       total={total}
       current={current}
       onChange={onChange}
+      hideOnSinglePage={true}
     />
   );
 };

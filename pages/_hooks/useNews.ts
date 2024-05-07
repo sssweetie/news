@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getNews } from '../_lib/getNews';
 
 const limit = 10;
@@ -15,19 +15,16 @@ export const useNews = () => {
     queryFn: () => getNews(limit, offset),
   });
 
-  const updateQueryParams = useCallback(
-    (pageNumber: number) => {
-      router.replace(
-        {
-          pathname: router.pathname,
-          query: { ...router.query, offset: pageNumber, limit },
-        },
-        undefined,
-        { shallow: true }
-      );
-    },
-    [router]
-  );
+  const updateQueryParams = (pageNumber: number) => {
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: { ...router.query, offset: pageNumber, limit },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
 
   const onChange = (pageNumber: number) => {
     setOffset(pageNumber);
@@ -36,7 +33,7 @@ export const useNews = () => {
 
   useEffect(() => {
     updateQueryParams(offset);
-  }, [offset, updateQueryParams]);
+  }, []);
 
   return { data, isLoading, limit, offset, onChange };
 };

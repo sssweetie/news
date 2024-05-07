@@ -1,14 +1,21 @@
 import { Typography, Image, Flex } from 'antd/lib';
 import React from 'react';
 import { Blog } from './News';
+import Link from 'next/link';
+import { getDate } from '../_utils/getDate';
+
+export type BlogPostProps = Pick<
+  Blog,
+  'id' | 'created_at' | 'title' | 'photo_url'
+>;
 
 export const BlogPost = ({
   id,
   created_at,
   title,
   photo_url,
-}: Pick<Blog, 'id' | 'created_at' | 'title' | 'photo_url'>) => {
-  const date = new Intl.DateTimeFormat('ru').format(new Date(created_at));
+}: BlogPostProps) => {
+  const date = getDate(created_at);
 
   return (
     <Flex
@@ -24,9 +31,12 @@ export const BlogPost = ({
         width="100%"
         height={200}
       />
-      <Typography.Title style={{ margin: 0 }} level={4}>
+      <Link
+        href={`/blog/${encodeURIComponent(id)}`}
+        className="font-medium text-black  hover:underline"
+      >
         {title}
-      </Typography.Title>
+      </Link>
       <Typography.Text className="self-end">{date}</Typography.Text>
     </Flex>
   );

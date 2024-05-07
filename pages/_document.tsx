@@ -1,15 +1,15 @@
 import React from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import type { DocumentContext } from 'next/document';
 import { Flex } from 'antd/lib';
 import { Header } from '@/components/Header';
+import type { DocumentContext } from 'next/document';
 
 const MyDocument = () => (
   <Html lang="en">
     <Head />
-    <body>
-      <Flex align="center" justify="center" vertical>
+    <body className="bg-slate-100">
+      <Flex justify="center" vertical>
         <Header />
         <Main />
         <NextScript />
