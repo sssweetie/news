@@ -42,7 +42,7 @@ export const News = () => {
       {!isLoading && (
         <Paginator
           style={{ margin: '0 auto' }}
-          className="w-fit"
+          className="w-fit bg-white"
           total={data?.total_blogs ?? 0}
           current={offset}
           onChange={onChange}

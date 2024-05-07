@@ -20,7 +20,7 @@ export const BlogPreview = ({
   return (
     <Flex
       vertical
-      className="border p-4 rounded-md w-full bg-slate-100 max-w-[25rem]"
+      className="border p-4 rounded-md w-full bg-white max-w-[25rem]"
       key={id}
       gap={8}
     >
