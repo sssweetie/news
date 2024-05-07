@@ -1,6 +1,6 @@
 import { Flex } from 'antd/lib';
 import { Paginator } from '../../components/Paginator';
-import { BlogPost } from './BlogPost';
+import { BlogPreview } from './BlogPreview';
 import { NewsSkeleton } from './NewsSkeleton';
 import { useNews } from '../_hooks/useNews';
 import { Header } from '@/components/Header';
@@ -27,7 +27,7 @@ export const News = () => {
       <Flex wrap gap={24} className="mb-4 justify-center">
         {isLoading && <NewsSkeleton limit={limit} />}
         {data?.blogs.map((blog: Blog) => (
-          <BlogPost
+          <BlogPreview
             key={blog.id}
             created_at={blog.created_at}
             title={blog.title}

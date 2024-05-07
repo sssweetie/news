@@ -1,7 +1,7 @@
 import { Skeleton } from 'antd/lib';
 import React from 'react';
 
-export const BlogPostSkeleton = () => {
+export const BlogPreviewSkeleton = () => {
   return (
     <div className="border p-4 rounded-md w-full bg-slate-100 max-w-[25rem]">
       <Skeleton.Image

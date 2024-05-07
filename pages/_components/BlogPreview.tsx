@@ -4,17 +4,17 @@ import { Blog } from './News';
 import Link from 'next/link';
 import { getDate } from '../_utils/getDate';
 
-export type BlogPostProps = Pick<
+export type BlogPreviewProps = Pick<
   Blog,
   'id' | 'created_at' | 'title' | 'photo_url'
 >;
 
-export const BlogPost = ({
+export const BlogPreview = ({
   id,
   created_at,
   title,
   photo_url,
-}: BlogPostProps) => {
+}: BlogPreviewProps) => {
   const date = getDate(created_at);
 
   return (
