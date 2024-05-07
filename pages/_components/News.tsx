@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Paginator } from '../../components/Paginator';
 import { getNews } from '../_lib/getNews';
 import { BlogPost } from './BlogPost';
+import { BlogPostSkeleton } from './BlogPostSkeleton';
+import { NewsSkeleton } from './NewsSkeleton';
 
 export interface Blog {
   title: string;
@@ -34,27 +36,27 @@ export const News = () => {
 
   return (
     <div className="py-10">
-      {!isLoading && (
-        <>
-          <Flex wrap gap={24} className="mb-4">
-            {data?.blogs.map((blog: Blog) => (
-              <BlogPost
-                key={blog.id}
-                created_at={blog.created_at}
-                title={blog.title}
-                id={blog.id}
-                photo_url={blog.photo_url}
-              />
-            ))}
-          </Flex>
-          <Paginator
-            className="mx-auto w-fit"
-            total={data?.total_blogs ?? 0}
-            current={offset}
-            onChange={onChange}
-          />
-        </>
-      )}
+      <>
+        <Flex wrap gap={24} className="mb-4 justify-center">
+          <NewsSkeleton limit={limit} isLoading={isLoading} />
+          {data?.blogs.map((blog: Blog) => (
+            <BlogPost
+              key={blog.id}
+              created_at={blog.created_at}
+              title={blog.title}
+              id={blog.id}
+              photo_url={blog.photo_url}
+            />
+          ))}
+        </Flex>
+        <Paginator
+          style={{ margin: '0 auto' }}
+          className="w-fit"
+          total={data?.total_blogs ?? 0}
+          current={offset}
+          onChange={onChange}
+        />
+      </>
     </div>
   );
 };
