@@ -5,8 +5,8 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query';
-import { getBlog } from '../../src/lib/getBlog';
-import { Blog } from '../../src/components/Blog';
+import { getBlog } from '../../src/entitites/blog/api/getBlog';
+import { Blog } from '../../src/entitites/blog/ui/Blog';
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { id } = query;

@@ -1,4 +1,4 @@
-import { Blog } from '@/src/components/News';
+import { Blog } from '@/src/widgets/news/ui/News';
 import axios from 'axios';
 
 export type Query = number | string | string[] | undefined;

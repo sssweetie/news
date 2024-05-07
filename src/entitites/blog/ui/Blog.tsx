@@ -1,10 +1,22 @@
-import { BlogSkeleton } from '@/src/components/BlogSkeleton';
-import { useBlog } from '@/src/hooks/useBlog';
-import { Button, Flex, Image, Typography } from 'antd/lib';
+import { BlogSkeleton } from '@/src/entitites/blog/ui/BlogSkeleton';
+import { useBlog } from '@/src/entitites/blog/model/useBlog';
+import { Alert, Flex, Image, Typography } from 'antd/lib';
 
 export const Blog = () => {
-  const { title, created_at, description, photo_url, isLoading, onClick } =
-    useBlog();
+  const {
+    title,
+    created_at,
+    description,
+    photo_url,
+    isLoading,
+    isError,
+    error,
+    onClick,
+  } = useBlog();
+
+  if (isError) {
+    return <Alert message={error?.message} type="error" />;
+  }
 
   return !isLoading ? (
     <Flex

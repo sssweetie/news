@@ -1,9 +1,9 @@
-import { Flex } from 'antd/lib';
-import { Paginator } from './Paginator';
-import { BlogPreview } from './BlogPreview';
+import { Alert, Flex } from 'antd/lib';
+import { Paginator } from '../../../shared/components/Paginator';
+import { BlogPreview } from '../../../entitites/blog-preview/ui/BlogPreview';
 import { NewsSkeleton } from './NewsSkeleton';
-import { Header } from '@/src/components/Header';
-import { useNews } from '../hooks/useNews';
+import { Header } from '@/src/widgets/news/ui/Header';
+import { useNews } from '../model/useNews';
 
 export interface Blog {
   title: string;
@@ -19,9 +19,12 @@ export interface Blog {
 }
 
 export const News = () => {
-  const { data, isLoading, limit, offset, onChange } = useNews();
+  const { data, isLoading, limit, offset, isError, error, onChange } =
+    useNews();
 
-  return (
+  return isError ? (
+    <Alert type="error" message={error?.message} />
+  ) : (
     <div className="py-10">
       <Header />
       <Flex wrap gap={24} className="mb-4 justify-center">

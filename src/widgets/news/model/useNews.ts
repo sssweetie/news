@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getNews } from '../lib/getNews';
+import { getNews } from '../api/getNews';
 
 const limit = 10;
 
@@ -12,7 +12,7 @@ export const useNews = () => {
     initialOffset ? Number(initialOffset) : 1
   );
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ['news', offset, limit],
     queryFn: () => getNews(limit, offset),
   });
@@ -37,5 +37,5 @@ export const useNews = () => {
     updateQueryParams(offset);
   }, []);
 
-  return { data, isLoading, limit, offset, onChange };
+  return { data, isLoading, isError, limit, offset, error, onChange };
 };

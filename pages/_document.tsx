@@ -2,7 +2,6 @@ import React from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { Flex } from 'antd/lib';
-import { Header } from '@/src/components/Header';
 import type { DocumentContext } from 'next/document';
 
 const MyDocument = () => (
