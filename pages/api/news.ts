@@ -13,9 +13,7 @@ export default async function handler(
     try {
       const { offset, limit } = req.query;
       const response = await axios.get(
-        `https://api.slingacademy.com/v1/sample-data/blog-posts?offset=${
-          offset ?? 1
-        }&limit=${limit ?? 10}`
+        `https://api.slingacademy.com/v1/sample-data/blog-posts?offset=${offset}&limit=${limit}`
       );
 
       return res.status(200).send(response.data);

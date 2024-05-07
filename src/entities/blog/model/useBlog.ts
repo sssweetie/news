@@ -1,4 +1,4 @@
-import { getBlog } from '@/src/entitites/blog/api/getBlog';
+import { getBlog } from '@/src/entities/blog/api/getBlog';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 

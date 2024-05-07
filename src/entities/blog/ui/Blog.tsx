@@ -1,5 +1,5 @@
-import { BlogSkeleton } from '@/src/entitites/blog/ui/BlogSkeleton';
-import { useBlog } from '@/src/entitites/blog/model/useBlog';
+import { BlogSkeleton } from '@/src/entities/blog/ui/BlogSkeleton';
+import { useBlog } from '@/src/entities/blog/model/useBlog';
 import { Alert, Flex, Image, Typography } from 'antd/lib';
 
 export const Blog = () => {

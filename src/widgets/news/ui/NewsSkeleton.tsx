@@ -1,4 +1,4 @@
-import { BlogPreviewSkeleton } from '../../../entitites/blog-preview/ui/BlogPreviewSkeleton';
+import { BlogPreviewSkeleton } from '../../../entities/blog-preview/ui/BlogPreviewSkeleton';
 
 interface NewsSkeletonProps {
   limit: number;
