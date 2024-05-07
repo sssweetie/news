@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const queryClient = new QueryClient();
 
-  queryClient.prefetchQuery({
+  await queryClient.prefetchQuery({
     queryKey: ['news', offset, limit],
     queryFn: () => getNews(limit, offset),
   });

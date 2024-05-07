@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { Col, Flex, Image, Row, Spin, Typography } from 'antd/lib';
+import { Flex } from 'antd/lib';
 import { useState } from 'react';
 import { Paginator } from '../../components/Paginator';
 import { getNews } from '../_lib/getNews';
+import { BlogPost } from './BlogPost';
 
 export interface Blog {
   title: string;
@@ -31,54 +32,29 @@ export const News = () => {
     setOffset(pageNumber);
   };
 
-  const customStyle = {
-    padding: 50,
-    background: 'rgba(0, 0, 0, 0.05)',
-    borderRadius: 4,
-  };
-
-  const content = <div style={customStyle} />;
   return (
-    <Flex vertical align="center" gap={24}>
-      {isLoading ? (
-        <Spin tip="Loading...">{content}</Spin>
-      ) : (
+    <div className="py-10">
+      {!isLoading && (
         <>
-          {data?.blogs.map((blog: Blog) => (
-            <div
-              className="border p-4 rounded-md w-full max-w-[40rem]"
-              key={blog.id}
-            >
-              <Row gutter={12}>
-                <Col span={4}>
-                  <Typography.Text>
-                    {new Intl.DateTimeFormat('ru').format(
-                      new Date(blog.created_at)
-                    )}
-                  </Typography.Text>
-                </Col>
-                <Col span={8}>
-                  <Typography.Title level={4}>{blog.title}</Typography.Title>
-                </Col>
-                <Col span={12}>
-                  <Image
-                    loading="lazy"
-                    src={blog.photo_url}
-                    alt="news-photo"
-                    width="100%"
-                    height={200}
-                  />
-                </Col>
-              </Row>
-            </div>
-          ))}
+          <Flex wrap gap={24} className="mb-4">
+            {data?.blogs.map((blog: Blog) => (
+              <BlogPost
+                key={blog.id}
+                created_at={blog.created_at}
+                title={blog.title}
+                id={blog.id}
+                photo_url={blog.photo_url}
+              />
+            ))}
+          </Flex>
           <Paginator
+            className="mx-auto w-fit"
             total={data?.total_blogs ?? 0}
             current={offset}
             onChange={onChange}
           />
         </>
       )}
-    </Flex>
+    </div>
   );
 };
